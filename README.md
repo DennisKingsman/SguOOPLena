@@ -4,7 +4,7 @@ Opject-oriented practice 2020
   
 Development of The problem statement.
 Created Agent class with next filds:  
-agentID
+agentID  
 List of advertising  
 agentPayment  
 List of advertising id  
