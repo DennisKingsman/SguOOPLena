@@ -1,7 +1,10 @@
 package entity;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
+@XmlRootElement(name = "broadcast")
 public class Broadcast {
 
     private String broadcastName;
@@ -21,6 +24,7 @@ public class Broadcast {
         return broadcastName;
     }
 
+    @XmlElement(name = "name")
     public void setBroadcastName(String broadcastName) {
         this.broadcastName = broadcastName;
     }
@@ -29,6 +33,7 @@ public class Broadcast {
         return broadcastPriority;
     }
 
+    @XmlElement(name = "priority")
     public void setBroadcastPriority(int broadcastPriority) {
         this.broadcastPriority = broadcastPriority;
     }
@@ -37,6 +42,7 @@ public class Broadcast {
         return minuteCost;
     }
 
+    @XmlElement
     public void setMinuteCost(BigDecimal minuteCost) {
         this.minuteCost = minuteCost;
     }

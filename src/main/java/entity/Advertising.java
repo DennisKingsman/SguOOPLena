@@ -1,7 +1,14 @@
 package entity;
 
+import utils.LocalDateAdapter;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
+@XmlRootElement(name = "advertising")
 public class Advertising {
 
     private Long advertisingId;
@@ -31,6 +38,7 @@ public class Advertising {
         return advertisingId;
     }
 
+    @XmlAttribute(name = "id")
     public void setAdvertisingId(Long advertisingId) {
         this.advertisingId = advertisingId;
     }
@@ -39,6 +47,7 @@ public class Advertising {
         return responsibleAgentId;
     }
 
+    @XmlAttribute(name = "agentID")
     public void setResponsibleAgentId(Long responsibleAgentId) {
         this.responsibleAgentId = responsibleAgentId;
     }
@@ -47,6 +56,7 @@ public class Advertising {
         return broadcast;
     }
 
+    @XmlElement(name = "broadcast")
     public void setBroadcast(Broadcast broadcast) {
         this.broadcast = broadcast;
     }
@@ -55,6 +65,7 @@ public class Advertising {
         return customer;
     }
 
+    @XmlElement(name = "customer")
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
@@ -63,6 +74,7 @@ public class Advertising {
         return responsibleBroadcastName;
     }
 
+    @XmlAttribute(name = "broadcast")
     public void setResponsibleBroadcastName(String responsibleBroadcastName) {
         this.responsibleBroadcastName = responsibleBroadcastName;
     }
@@ -71,6 +83,7 @@ public class Advertising {
         return responsibleCustomerName;
     }
 
+    @XmlAttribute(name = "customer")
     public void setResponsibleCustomerName(String responsibleCustomerName) {
         this.responsibleCustomerName = responsibleCustomerName;
     }
@@ -79,6 +92,8 @@ public class Advertising {
         return advertisingDate;
     }
 
+    @XmlElement(name = "date")
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     public void setAdvertisingDate(LocalDate advertisingDate) {
         this.advertisingDate = advertisingDate;
     }
@@ -87,6 +102,7 @@ public class Advertising {
         return advertisingDuration;
     }
 
+    @XmlElement(name = "duration")
     public void setAdvertisingDuration(int advertisingDuration) {
         this.advertisingDuration = advertisingDuration;
     }
@@ -94,8 +110,11 @@ public class Advertising {
     @Override
     public String toString() {
         return "Advertising : " + "id " + advertisingId + " "
-                + customer + "; "
-                + broadcast + "; "
+                + "responsibleAgentId " +responsibleAgentId + " "
+                + customer + "; " + '\n'
+                + broadcast + "; " + '\n'
+                + "responsibleCustomerName " + responsibleCustomerName + " "
+                + "responsibleBroadcastName " + responsibleBroadcastName + " "
                 + "advertisingDate " + advertisingDate + "; "
                 + "advertisingDuration" + advertisingDuration + ". ";
     }

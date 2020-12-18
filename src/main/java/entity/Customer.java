@@ -1,5 +1,7 @@
 package entity;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class Customer {
 
     private String customerName;
@@ -21,6 +23,7 @@ public class Customer {
         return customerName;
     }
 
+    @XmlElement(name = "name")
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
@@ -29,6 +32,7 @@ public class Customer {
         return bankRequisites;
     }
 
+    @XmlElement
     public void setBankRequisites(String bankRequisites) {
         this.bankRequisites = bankRequisites;
     }
@@ -37,6 +41,7 @@ public class Customer {
         return customerPhoneNumber;
     }
 
+    @XmlElement(name = "phone")
     public void setCustomerPhoneNumber(String customerPhoneNumber) {
         this.customerPhoneNumber = customerPhoneNumber;
     }
@@ -45,6 +50,7 @@ public class Customer {
         return contactPerson;
     }
 
+    @XmlElement
     public void setContactPerson(String contactPerson) {
         this.contactPerson = contactPerson;
     }
