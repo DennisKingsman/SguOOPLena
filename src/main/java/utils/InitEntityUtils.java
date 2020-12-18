@@ -50,10 +50,8 @@ public class InitEntityUtils {
     private static List<Advertising> getDependentAdvertising(List<Advertising> advertising) {
         List<Advertising> resultAdvertising = new ArrayList<>();
         for (Advertising a : advertising) {
-            System.out.println("check");
             Long id = a.getResponsibleAgentId();
             if (id != null && id == RESPONSIBLE_AGENT_ID) {
-                System.out.println(a);
                 resultAdvertising.add(a);
             }
         }

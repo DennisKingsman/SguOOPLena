@@ -110,7 +110,7 @@ public class Advertising {
     @Override
     public String toString() {
         return "Advertising : " + "id " + advertisingId + " "
-                + "responsibleAgentId " +responsibleAgentId + " "
+                + "responsibleAgentId " + responsibleAgentId + " "
                 + customer + "; " + '\n'
                 + broadcast + "; " + '\n'
                 + "responsibleCustomerName " + responsibleCustomerName + " "
