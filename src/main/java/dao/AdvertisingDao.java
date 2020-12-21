@@ -12,6 +12,8 @@ import java.util.List;
 
 public class AdvertisingDao {
 
+    private static final String DELETE_BY_DATE = "delete from advertising where advertising_date = ?;";
+    private static final String DELETE_BY_BROADCAST = "delete from advertising where r_broadcast_name = ?";
     private static final String CREATE = "insert into advertising(r_broadcast_name, r_customer_name, advertising_date, advertising_duration) values (?, ?, ?, ?);";
     private static final String GET_ALL = "select * from advertising;";
     private static final String GET_BY_BROAD_CAST = "select * from advertising where r_broadcast_name = ?;";
@@ -35,6 +37,17 @@ public class AdvertisingDao {
 
     private Connection getConnection() throws SQLException {
         return connectionBuilder.getConnection();
+    }
+
+    public int deleteByBroadcast(String broadcastName){
+        try (Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BY_BROADCAST)){
+            preparedStatement.setString(1, broadcastName);
+            return preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0;
     }
 
     public List<Advertising> getByCustomer(String customerName){

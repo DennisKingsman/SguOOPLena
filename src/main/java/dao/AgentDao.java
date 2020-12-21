@@ -14,6 +14,7 @@ import java.util.List;
 
 public class AgentDao {
 
+    private static final String DELETE = "delete from agent where agent_id = ?;";
     private static final String CREATE = "insert into agent(agent_payment) values (?);";
     private static final String GET_ALL = "select * from agent;";
     //requires advertising_date

@@ -27,6 +27,16 @@ public class MainAdvertising {
         getByCustomer();
         createAdvertising();
         getAll();
+        deleteAdvertising();
+        getAll();
+
+    }
+
+    private static void deleteAdvertising(){
+        System.out.println("Deleting advertising with broadcast: " + B_NAME);
+        advertisingDao.setConnectionBuilder(new ConnectionBuilderImpl());
+        advertisingDao.deleteByBroadcast(B_NAME);
+        System.out.println("Complete");
     }
 
     private static void createAdvertising(){

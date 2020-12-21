@@ -9,6 +9,7 @@ import java.util.List;
 public class MainCustomer {
 
     private static final String NAME = "some";
+    private static final String NEW_NAME = "Z-corp";
 
     private static CustomerDao customerDao;
 
@@ -17,12 +18,22 @@ public class MainCustomer {
         getByName();
 
         Customer customer = new Customer();
-        customer.setCustomerName("Z-corp");
+        customer.setCustomerName(NEW_NAME);
         customer.setBankRequisites("1234-3214-9876-1234");
         customer.setCustomerPhoneNumber("+7-987-912-1234");
         customer.setContactPerson("John");
         createCustomer(customer);
         getAll();
+        delete();
+        getAll();
+        createCustomer(customer);
+    }
+
+    private static void delete(){
+        System.out.println("Deleting " + NEW_NAME);
+        customerDao.setConnectionBuilder(new ConnectionBuilderImpl());
+        customerDao.delete(NEW_NAME);
+        System.out.println("complete");
     }
 
     private static void createCustomer(Customer customer){

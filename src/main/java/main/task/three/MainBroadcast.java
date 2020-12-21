@@ -19,6 +19,16 @@ public class MainBroadcast {
         getByName();
         createBroadcast();
         getAll();
+        delete();
+        getAll();
+        createBroadcast();
+    }
+
+    private static void delete(){
+        broadcastDao.setConnectionBuilder(new ConnectionBuilderImpl());
+        System.out.println("Deleting " + NEW_NAME);
+        broadcastDao.delete(NEW_NAME);
+        System.out.println("Complete");
     }
 
     private static void getAll(){
